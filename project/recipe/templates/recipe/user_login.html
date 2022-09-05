@@ -1,0 +1,28 @@
+<!--Bu kirish tugmasi bosilganda ochiladigan saxifasi-->
+
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block main %}
+<div class="container">
+
+<form class="user-login-form" action="" method="post">
+    {% csrf_token %}
+    {% include 'components/_form_errors.html' %}
+                                                                <!--{{ form.as_p }}  bu xammasini chiqarish uchun edi-->
+    <lebel for="{{ form.username.if_for_label }}">Username:</lebel>
+    <!--    form.username ga murojat^ qilyapmiz agar label username uchun bo'lsa-->
+    {{ form.username }}
+
+    <lebel for="{{ form.password.if_for_label }}">Password:</lebel>
+    {{ form.password }}
+
+    <button class="btn btn-primary mt-3" type="submit">Kirish</button>
+</form>
+</div>
+{% endblock main %}
+
+

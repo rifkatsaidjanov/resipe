@@ -1,0 +1,14 @@
+<!--Alert chiqishi uchun-->
+{% if messages %}
+<div class="messages text-center">
+    {% for message in messages %}
+    <div class="alert alert-{% if message.tags %}{{ message.tags }}{% else %}secondary {% endif %}" role="alert">
+<!--       message.tags bu views.py dagi user_login va user_logout dagi messages.warning yoki messages.success-->
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+
+{% endif %}
+
+

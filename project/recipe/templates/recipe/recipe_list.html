@@ -1,0 +1,32 @@
+<!--Bu glavniy saxifa-->
+
+{% extends 'base.html' %}               # base.html dan meros ol
+{% load recipes_tags %}                 # recipes_tags.py ni ishga tushir
+
+
+{% block main %}
+
+        {% block carousel %}
+            {% include 'components/_carousel.html' %}
+        {% endblock carousel %}
+
+
+
+<div class="container">
+<!--            <div class="categories">-->
+<!--                {% get_all_categories as categories %}-->
+<!--                {% include 'recipe/components/_sidebar.html' %}-->
+<!--            </div>-->
+
+        <div class="d-flex justify-content-between">
+
+            <div class="d-flex card-wrap">
+                {% for recipe in recipes %}
+                {% include 'recipe/components/_card.html' %}
+                {% endfor %}
+            </div>
+
+        </div>
+                {% include 'components/_pagination.html' %}
+</div>
+{% endblock main %}

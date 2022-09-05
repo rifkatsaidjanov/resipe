@@ -1,0 +1,51 @@
+<!--bu saxifa batafsil knopkasi bosilganda ochiladigan saxifa-->
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+<!--titleda saxifani nomi chiqishi uchun-->
+
+
+{% block main %}
+<div class="container">
+
+<div class="card-details text-center mb-3 border-dark">
+    <div class="img-book">
+        <img class="" src="{% static 'recipe/img/3.jpg' %}" alt="rasm" width="100%">
+    </div>
+    <div class="card-body">
+        <h1 class="card-title">{{ recipe.title }}</h1>
+        <div class="card-photo">
+            {% if recipe.photo %}
+            <div class="recipe-photo-in-detail">
+                <img src="{{ recipe.photo.url }}" width="100%" alt="rasm">
+            </div>
+            {% else %}
+            <div class="recipe-photo-in-detail">
+                <img src="https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmVjaXBlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+                     width="100%" alt="rasm">
+            </div>
+            {% endif %}
+        </div>
+        <p class="card-text">{{ recipe.content | linebreaks}}</p>
+        <p class="card-text">Автор: {{ recipe.author.username }}</p>
+        <a href="{% url 'index' %}" class="btn btn-outline-primary btn-lg p-2 m-2">Bosh saxifaga qaytish</a>
+        {% if request.user ==  recipe.author %}
+<!--        agar foydalanuvchi teng bo'lsa avtorga o'zgartirish, o'chirish knopkasi chiqsin-->
+        <a href="{% url 'article_update' recipe.pk %}" class="btn btn-outline-dark btn-lg p-2 m-2">O'zgartirish</a>
+        <a href="{% url 'article_delete' recipe.pk %}" class="btn btn-outline-danger btn-lg p-2 m-2">O'chirish</a>
+        {% endif %}
+    </div>
+    <div class="card-footer text-muted">
+        {{ recipe.created_at}}
+    </div>
+</div>
+</div>
+{% endblock main %}
+
+
+

@@ -1,0 +1,25 @@
+<!--bu registratsiya knopkasi bosilganda ochiladigan saxifa-->
+
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block main %}
+<div class="container">
+
+<form class="user-login-form" action="" method="post">
+    {% csrf_token %}
+    {% include 'components/_form_errors.html' %}
+    {{ form.as_p }}
+    <button class="btn btn-primary mt-3" type="submit">Registratsiya</button>
+</form>
+</div>
+{% endblock main %}
+
+
+
+
+
+

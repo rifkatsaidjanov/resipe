@@ -1,0 +1,26 @@
+<!--bu saxifa o'ng tomondagi (pastdagi) kartochkalar-->
+
+{% load static %}
+
+<a class="card-global-link" href="{{ recipe.get_absolute_url }}">
+    <div class="card text-center">
+        <div class="card-header">
+            {{ recipe.category.title }}
+        </div>
+            <div class="card-body">
+                <p class="card-title-global">{{ recipe.title }}</p>
+                <div class="card-photo" style="height: 230px;">
+                    {% if recipe.photo %}
+                        <img src="{{ recipe.photo.url }}" width="100%" height="100%" alt="rasm">
+                    {% else %}
+                        <img src="https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVjaXBlc3xlbnwwfHwwfHw%3D&w=1000&q=80" width="100%" height="230" alt="rasm">
+                    {% endif %}
+                </div>
+                <p class="card-text">{{ recipe.content | linebreaks| truncatechars:100 }}</p>
+<!--                                                             truncatewords:8-->
+            </div>
+        <div class="card-footer text-muted">
+            {{ recipe.created_at}}
+        </div>
+    </div>
+</a>

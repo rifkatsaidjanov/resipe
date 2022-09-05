@@ -1,0 +1,40 @@
+<!--Bu maqola qo'shish saxifasi -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+{{title}}
+{% endblock title %}
+
+
+{% block main %}
+<div class="container">
+
+<div class="add-article d-flex">
+    <div class="block-left-article">
+        <form class="add_article_form" action="{% if 'new' in request.path %}{% url 'add_article' %}{% endif %}" method="post" enctype="multipart/form-data">
+<!--                                           agar^ request url.py dagi new ga to'g'ri kelsa-->
+            {% csrf_token %}
+<!--            csrf djangoni zashitasi-->
+            {% include 'components/_form_errors.html' %}
+            {{ form.as_p }}
+<!--        forms.py dagi ArticleForm classini paragrf sifatida ochib beryapdi (.as_p)-->
+
+            {% if 'update' in request.path %}
+<!--        agar url dagi path da update turgan bo'lsa -->
+            <button type="submit" class="btn update_article_btn">O'zgartirish</button>
+                {% else %}
+            <button type="submit" class="btn add_article_btn">Qo'shish</button>
+                {% endif %}
+
+        </form>
+    </div>
+    <div class="block-right-article">
+        <img src="{% static 'recipe/img/pen.png' %}" width="100%" alt="rasm">
+    </div>
+</div>
+
+</div>
+{% endblock main %}

@@ -1,0 +1,26 @@
+<!-- formlarda error bor bo'lsa ishlidi
+ bu saxifani user_login.html ga va add_article.html ga include qilinadi-->
+
+{% if form.error %}
+
+<div class="form-errors">
+    {% for field in form %}
+        {% for error in field.errors %}
+<!--      polyani ichidagi^ errorlar-->
+            <div class="alert alert-danger" role="alert">
+                {{ error|escape }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {% for error in from.non_field_errors %}
+<!--polyani tashqarisidagi^ errorlar-->
+        <div class="alert alert-danger" role="alert">
+            {{ error|escape }}
+        </div>
+    {% endfor %}
+
+</div>
+
+{% endif %}
+

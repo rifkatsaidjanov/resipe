@@ -1,0 +1,42 @@
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'recipe/css/main.css' %}">
+{% endblock style %}
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="footer-wrap flex-wrap">
+            <div class="address">
+                <h3>Bizning manzil:</h3>
+                <p>Sirdaryo viloti</p>
+                <p>Guliston shahri</p>
+                <p>Zarbdor mahallasi</p>
+                <p>Avlodlar orzusi ko'chasi 8</p>
+            </div>
+            <div class="tel-nomber">
+                <h3>Murojat uchun tel:</h3>
+                <p><img class="phone-img" src="{% static 'recipe/img/img_footer/phone-alt.svg' %}" alt="rasm" width="16" height="16"> +998949130808</p>
+                <p><img class="phone-img" src="{% static 'recipe/img/img_footer/phone-alt.svg' %}" alt="rasm" width="16" height="16"> +998994648392</p>
+            </div>
+            <div class="socials">
+                <h3>Biz ijtimoiy tarmoqlarda</h3>
+                <a href="#" class="socials-link">
+                    <img class="socials-img" src="{% static 'recipe/img/img_footer/facebook.png' %}" alt="rasm" width="30"height="30">
+                </a>
+                <a href="#" class="socials-link">
+                    <img class="socials-img" src="{% static 'recipe/img/img_footer/instagram.jpg' %}" alt="rasm" width="30"height="30">
+                </a>
+                <a href="#" class="socials-link">
+                    <img class="socials-img" src="{% static 'recipe/img/img_footer/telegram.png' %}" alt="rasm" width="30"height="30">
+                </a>
+                <a href="#" class="socials-link">
+                    <img class="socials-img" src="{% static 'recipe/img/img_footer/youtube.jpg' %}" alt="rasm" width="30" height="30">
+                </a>
+                <a href="#" class="socials-link">
+                    <img class="socials-img" src="{% static 'recipe/img/img_footer/twitter.png' %}" alt="rasm" width="30"height="30">
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
